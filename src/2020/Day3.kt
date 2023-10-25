@@ -10,7 +10,6 @@ fun main() {
     testArray.fillGrid(testList)
 
     fun test() = testArray.listOfAllTrees(listOf(3 to 1)).first()
-
     fun part1() = charArray.listOfAllTrees(listOf(3 to 1)).first()
     fun part2() = charArray.listOfAllTrees(
         listOf(
@@ -22,8 +21,6 @@ fun main() {
         )
     ).product()
 
-
-
     check(test() == 7U)
     println("Part 1: " + part1())
     println("Part 2: " + part2())
@@ -34,7 +31,6 @@ fun main() {
 fun Array<Array<Char>>.listOfAllTrees(list: List<Pair<Int, Int>>) = list.map { entry ->
     numOfTrees(entry.first, entry.second)
 }
-
 
 fun Array<Array<Char>>.numOfTrees(right: Int, down: Int): UInt {
     var treeNum = 0
