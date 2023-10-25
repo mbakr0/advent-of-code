@@ -9,8 +9,7 @@ import java.net.http.HttpResponse
 
 
 
-private const val cookie =
-    "_ga=GA1.2.1506384542.1696422485; session=53616c7465645f5fa3865ed7dd54433b0dfe0a7dc322f65f49b7f03f3749e535e9b74b18da765cb54a756be76957830143f41e7f65accca0a785d5ed59aed692; _gid=GA1.2.1147975875.1697866431; _ga_MHSNPJKWC7=GS1.2.1697884488.34.1.1697884488.0.0.0"
+private const val cookie = "// TODO: add cookie"
 private const val baseURL = "https://adventofcode.com"
 
 private object Date {
