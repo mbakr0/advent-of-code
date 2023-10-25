@@ -12,14 +12,19 @@ import java.net.http.HttpResponse
 private const val cookie = "// TODO: add cookie"
 private const val baseURL = "https://adventofcode.com"
 
+
 private object Date {
     var year = 2015
     var day = 1
+    fun addDate(year:Int,day:Int){
+        Date.year = year
+        Date.day= day
+    }
 }
 
 private fun fileDirectory() = Date.year.toString()
-private fun fileName() = "day_${Date.day}.txt"
-private fun testFileName () = "test_${fileName()}"
+private fun fileName() = "Day${if (Date.day > 9) "" else "0"}${Date.day}.txt"
+private fun testFileName () = fileName().replace(".txt","_test.txt")
 private const val root = "src"
 
 fun readFromFile(): List<String> {
@@ -40,14 +45,14 @@ private fun write(text:String = readStringFromUrl(),fileName:String = fileName()
     .writeText(text)
 
 
-fun replaceTestFile() = writeTestFile()
 
 fun addDate(year:Int,day:Int){
-    Date.year = year
-    Date.day= day
+    if (year !in (2015..2022) || day !in (1..25)) throw Exception("Year or day not exist in advent of code")
+    Date.addDate(year,day)
 }
 
-fun readTestFile(): List<String> {
+fun readTestFile(replaceTestFile:Boolean = false): List<String> {
+    if (replaceTestFile) writeTestFile()
     if (fileNotExist(testFileName()))
         makeTestFile()
     return read(testFileName())
