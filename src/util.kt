@@ -23,8 +23,8 @@ private object Date {
 }
 
 private fun fileDirectory() = Date.year.toString()
-private fun fileName() = "Day${if (Date.day > 9) "" else "0"}${Date.day}.txt"
-private fun testFileName () = fileName().replace(".txt","_test.txt")
+private fun fileName() = "Day${if (Date.day > 9) "" else "0"}${Date.day}"
+private fun testFileName () = fileName() + "_test"
 private const val root = "src"
 
 fun readFromFile(): List<String> {
