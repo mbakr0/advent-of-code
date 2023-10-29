@@ -140,3 +140,16 @@ fun downloadAllFiles(yearRange: IntRange = (2015..2022), dayRange: IntRange = (1
 }
 
 fun Iterable<UInt>.product() = reduce { acc, i ->  acc * i}
+
+fun <T> Iterable<T>.groupSequence(predicate: (T) -> Boolean): List<List<T>> {
+    var mapIndex = 0
+    var c = first()
+    return this.groupBy {
+            if (predicate(it))
+                return@groupBy mapIndex
+            c=it
+            ++mapIndex
+        }.map {
+            it.value
+        }
+}

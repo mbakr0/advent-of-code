@@ -57,12 +57,15 @@ fun String.convert():String {
 private fun String.convert2(): String {
     var mapIndex = 0
     var c = first()
-    return groupBy {
-        if (c == it)
-            return@groupBy mapIndex
-        c=it
-        ++mapIndex
-    }.map {
-        "${it.value.size}${it.value.first()}"
-    }.joinToString("")
+    return buildString {
+        this@convert2.groupBy {
+            if (c == it)
+                return@groupBy mapIndex
+            c=it
+            ++mapIndex
+        }.forEach{
+            append("${it.value.size}${it.value.first()}")
+        }
+    }
+
 }
