@@ -9,7 +9,7 @@ fun main() {
     fun test() = testList.getInvalid(5)
 
     fun part1() = list.getInvalid(25)
-    fun part2() = list.sumOfMaxAndMin(list.contiguousList(part1()))
+    fun part2() = list.contiguousList(part1())
 
 
     check(test() == 127.toULong())
@@ -36,7 +36,7 @@ private fun List<ULong>.getInvalid(preambleLength :Int ): ULong {
 }
 
 
-private fun List<ULong>.contiguousList(target: ULong): IntRange {
+private fun List<ULong>.contiguousList(target: ULong): ULong {
     for (i in 0 until lastIndex)
     {
         var index = i + 1
@@ -44,7 +44,7 @@ private fun List<ULong>.contiguousList(target: ULong): IntRange {
         while (index < size){
             sum+=this[index]
             if (sum == target)
-                return i..index
+                return sumOfMaxAndMin(i..index)
             if (sum > target)
                 break
             index++
