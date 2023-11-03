@@ -11,9 +11,6 @@ fun main() {
     val testList = listOf("abcdefgh","ghijklmn")
     val testAnswer = listOf("abcdffaa","ghjaabcc")
 
-    println("a".repeat(5))
-
-
     fun test() = checkTest(testList,testAnswer)
 
     fun part1() = list.incrementUntilValid()
