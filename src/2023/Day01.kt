@@ -10,10 +10,7 @@ fun main() {
     fun test() = testList.sumOf { it.firstCalibration() }
     fun part1() = list.sumOf { it.firstCalibration() }
     fun part2() = list.sumOf { it.secondCalibration() }
-
-    (3..5).map {
-
-    }
+    
     check(test() == 142)
     println("Part 1: " + part1())
     println("Part 2: " + part2())
